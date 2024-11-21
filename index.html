@@ -1,0 +1,298 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PJBL Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+            background-color: black;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .bg-opacity-70 {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        section {
+            padding-top: 80px; 
+        }
+        nav {
+            z-index: 50; 
+        }
+        .divider {
+            border-top: 2px solid #b1a7a7;
+            margin: 0px 0;
+        }
+        .burger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .burger div {
+            height: 3px;
+            background-color: #fff;
+            border-radius: 5px;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+        .burger div:nth-child(1) {
+            transform-origin: 0 0;
+        }
+        .burger div:nth-child(2) {
+            opacity: 1;
+        }
+        .burger div:nth-child(3) {
+            transform-origin: 0 100%;
+        }
+        .nav-links {
+            display: flex;
+        }
+        .nav-links a {
+            margin: 0 1rem;
+        }
+        .pdf-container {
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+        .pdf-frame {
+            width: 100%;
+            height: 600px; 
+            border: none;
+        }
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px; 
+            }
+            .nav-links {
+                display: none;
+                width: 100%;
+                text-align: center;
+                background-color: rgba(0, 0, 0, 0.9);
+                position: absolute;
+                top: 64px;
+                left: 0;
+                padding: 1rem 0;
+                z-index: 100;
+            }
+            .nav-links.active {
+                display: block;
+            }
+            .burger {
+                display: flex;
+            }
+            section {
+                padding-top: 50px; 
+            }
+            .container {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            .pdf-frame {
+                height: 400px; 
+            }
+            @keyframes slideIn {
+            0% {
+            transform: translateX(-100%);
+            opacity: 0;
+           }
+           100% {
+           transform: translateX(0);
+           opacity: 1;
+        }
+        }
+
+        .h1, .p {
+         animation: slideIn 3s ease-out;
+        }
+
+        }
+        .burger.active div:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        .burger.active div:nth-child(2) {
+            opacity: 0;
+        }
+        .burger.active div:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        .bg-cover {
+            background-size: cover;
+            background-position: center;
+        }
+        .section-heading {
+            text-align: center;
+        }
+        .section-heading h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .section-heading p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 1024px) {
+
+        .pdf-frame {
+            width: 1000px; 
+            margin: 0 auto; 
+        }
+    }
+    
+    @keyframes slideIn {
+            0% {
+            transform: translateX(-100%);
+            opacity: 0;
+           }
+           100% {
+           transform: translateX(0);
+           opacity: 1;
+        }
+    }
+
+        .h1, .p {
+         animation: slideIn 1s ease-out;
+    }
+
+        .fade-in {
+         opacity: 0;
+         transform: translateY(50px);
+         transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+        .fade-in.visible {
+         opacity: 1;
+         transform: translateY(0);
+    }
+    </style>
+</head>
+<body class="text-white">
+
+    <nav class="bg-gray-800 p-4 fixed w-full z-50 top-0 sticky">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold"><em>KELOMPOK B</em></a>
+            <div class="burger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="mx-2 hover:text-gray-400 hover:font-bold">Home</a>
+                <a href="#article" class="mx-2 hover:text-gray-400 hover:font-bold">Article</a>
+                <a href="#poster" class="mx-2 hover:text-gray-400 hover:font-bold">Poster</a>
+                <a href="#video" class="mx-2 hover:text-gray-400 hover:font-bold">Video</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <section id="home" class="h-screen bg-cover bg-center relative fade-in" style="background-image: url('src/WhatsApp Image 2024-11-20 at 17.47.30_289a3107.jpg');">
+        <div class="absolute inset-0 bg-opacity-70"></div>
+        <div class="container mx-auto h-full flex flex-col items-center justify-center relative z-10 text-center px-4 pb-20">
+            <h1 class="h1 text-3xl font-bold mb-8">EFEKTIVITAS KEBIJAKAN PEMERATAAN EKONOMI <br>TERHADAP KESENJANGAN HARGA PADA <br>PEDAGANG SEMBAKO DI PASAR PONDOK LABU</h1>
+            <p class="p text-sm max-w-2xl">Dalam kegiatan ini, dilakukan analisis pada perbedaan harga sembako yang terjadi antar pedagang di pasar Pondok Labu, juga pendapat dari pembeli apakah dapat mempengaruhi efek daya beli yang signifikan dan bagaimana kebijakan pemerintah berperan dalam menanggulangi ketimpangan tersebut. Kegiatan ini berupa pengumpulan data, survei pasar, dan wawancara dengan pedagang dan pembeli, serta mengukur penilaian pedagang dan pembeli terhadap perubahan harga dan kesejahteraan mereka.</p>
+        </div>
+    </section>
+    
+    <div class="divider"></div>
+
+    <section id="article" class="min-h-screen bg-cover bg-center relative fade-in" style="background-image: url('src/WhatsApp Image 2024-11-20 at 17.47.31_c09dca16.jpg');">
+        <div class="absolute inset-0 bg-opacity-70"></div>
+        <div class="container mx-auto min-h-screen flex flex-col items-center justify-center relative z-10 px-4 py-8">
+            <div class="section-heading">
+                <h2 class="text-4xl font-bold mb-4">Artikel</h2>
+                <p class="text-lg mb-8">Berikut adalah lampiran artikelnya silahkan di klik</p>
+                
+                <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <a href="https://drive.google.com/file/d/1u6dVt4TOpQgiiAxqmeHoMSLE1zQK5RPD/view">Artikel</a>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="poster" class="min-h-screen bg-cover bg-center relative fade-in" style="background-image: url('src/WhatsApp Image 2024-11-20 at 17.47.31_deda1a3b.jpg');">
+        <div class="absolute inset-0 bg-opacity-70"></div>
+        <div class="container mx-auto min-h-screen flex flex-col items-center justify-center relative z-10 px-4 py-8">
+            <div class="text-center w-full max-w-4xl">
+                <h2 class="text-4xl font-bold mb-4 text-white">Poster</h2>
+                <p class="text-lg text-white mb-8">Berikut adalah lampiran poster silahkan di klik</p>
+
+                <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <a href="https://drive.google.com/file/d/1PfWXBf2u6GMT5LYKlCpBB3BTBIWN84sD/view">Poster</a>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="video" class="h-screen bg-cover bg-center relative fade-in" style="background-image: url('src/IMG-20241117-WA0017.jpg');">
+        <div class="absolute inset-0 bg-opacity-70"></div>
+        <div class="container mx-auto h-full flex items-center justify-center relative z-10">
+            <div class="text-center">
+                <h2 class="text-4xl font-bold mb-4">Video</h2>
+                <p class="text-lg mb-8">Berikut adalah video dokumentasi PJBL kelompok kami</p>
+                <div class="relative w-full h-0" style="padding-bottom: 56.25%;">
+                    <iframe class="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/aL7DeoJ12O4"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                    </iframe>               
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="divider"></div>
+
+    <footer class="bg-gray-800 p-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; Fakultas Ekonomi dan Bisnis, Prodi S1 Akuntansi UPN "Veteran Jakarta"</p>
+        </div>
+    </footer>
+    
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            document.querySelector('.burger').classList.toggle('active');
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+        const observerOptions = {
+        threshold: 0.1, 
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+             if (entry.isIntersecting) {
+                 entry.target.classList.add("visible");
+             } else {
+                 entry.target.classList.remove("visible");
+             }
+        });
+        }, observerOptions);
+
+        const fadeInElements = document.querySelectorAll(".fade-in");
+        fadeInElements.forEach(el => observer.observe(el));
+        });
+
+        const fadeInElements = document.querySelectorAll(".fade-in");
+        fadeInElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
